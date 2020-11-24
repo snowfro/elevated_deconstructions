@@ -22,28 +22,48 @@
       noLoop()
     }
 
-
     function draw() {
+      let tokenData = {};
+      let hashString = "0x";
+      for (let i = 0; i < 64; i++) {
+        let val = Math.floor(Math.random().toFixed(3) * 255);
+        hashString = hashString + val.toString(16);
+      }
+      tokenData.hashes = [hashString];
+
+      // Start here for upload //
+
+      let numHashes = tokenData.hashes.length;
+
+      let hashPairs = [];
+      for (let i = 0; i < numHashes; i++) {
+        for (let j = 0; j < 32; j++) {
+          hashPairs.push(tokenData.hashes[i].slice(2 + (j * 2), 4 + (j * 2)));
+        }
+      }
+
+      let decPairs = hashPairs.map(x => { return parseInt(x, 16); });
+
       noFill()
       let a = 600
       let b = 1800
-      let m = random(10, 30)
-      let x1 = random(a, b)
-      let y1 = random(a, b)
-      let x2 = random(a, b)
-      let y2 = random(a, b)
-      let x3 = random(a, b)
-      let y3 = random(a, b)
-      let x4 = random(a, b)
-      let y4 = random(a, b)
-      let x5 = random(a, b)
-      let y5 = random(a, b)
-      let x6 = random(a, b)
-      let y6 = random(a, b)
-      let x7 = random(a, b)
-      let y7 = random(a, b)
-      let x8 = random(a, b)
-      let y8 = random(a, b)
+      let m = map(decPairs[0], 0, 255, 10, 30); // converts the first hash pair into a value between 10 and 30
+      let x1 = map(decPairs[1], 0, 255, a, b); // converts the second hash pair into a value between 600 and 1800
+      let y1 = map(decPairs[2], 0, 255, a, b); // converts the third hash pair into a value between 600 and 1800
+      let x2 =  map(decPairs[3], 0, 255, a, b)
+      let y2 =  map(decPairs[4], 0, 255, a, b)
+      let x3 =  map(decPairs[5], 0, 255, a, b)
+      let y3 =  map(decPairs[6], 0, 255, a, b)
+      let x4 =  map(decPairs[7], 0, 255, a, b)
+      let y4 =  map(decPairs[8], 0, 255, a, b)
+      let x5 =  map(decPairs[9], 0, 255, a, b)
+      let y5 =  map(decPairs[10], 0, 255, a, b)
+      let x6 =  map(decPairs[11], 0, 255, a, b)
+      let y6 =  map(decPairs[12], 0, 255, a, b)
+      let x7 =  map(decPairs[13], 0, 255, a, b)
+      let y7 =  map(decPairs[14], 0, 255, a, b)
+      let x8 =  map(decPairs[15], 0, 255, a, b)
+      let y8 =  map(decPairs[16], 0, 255, a, b)
       stroke("#111111")
       background("#eeeeee")
       for (let i = 0; i <= random(10, 30); i++) {
@@ -65,10 +85,6 @@
       for (let i = 0; i < 15000; i++) {
         line(random(-1200, 3600), random(-1200, 3600), random(-1200, 3600), random(-1200, 3600))
       }
-
-
-
-
     }
   </script>
 </head>
