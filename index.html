@@ -45,12 +45,10 @@
 			
      
 			
-      noLoop()
+     noLoop()
     }
 
     function draw() {
-      
-
       noFill()
       let a = 400*multiplier;
       let b = 1800*multiplier;
@@ -98,9 +96,9 @@
       drawingContext.shadowOffsetX = 0;
     drawingContext.shadowOffsetY = 0;
     drawingContext.shadowBlur = 0;
-      strokeWeight(0.05*multiplier)
+      strokeWeight(0.08*multiplier)
       stroke("pink")
-      for (let i = 0; i < 15000*multiplier; i++) {
+      for (let i = 0; i < 7500*multiplier; i++) {
         line(map(rnd(),0,1,-1200*multiplier,3600*multiplier), map(rnd(),0,1,-1200*multiplier,3600*multiplier), map(rnd(),0,1,-1200*multiplier,3600*multiplier), map(rnd(),0,1,-1200*multiplier,3600*multiplier))
       }
     }
