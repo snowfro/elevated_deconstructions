@@ -24,23 +24,24 @@
 
       // Start here for upload //
 
-      let numHashes = tokenData.hashes.length;
+      //let numHashes = tokenData.hashes.length;
 
       let hashPairs = [];
-      for (let i = 0; i < numHashes; i++) {
+      //for (let i = 0; i < numHashes; i++) {
         for (let j = 0; j < 32; j++) {
-          hashPairs.push(tokenData.hashes[i].slice(2 + (j * 2), 4 + (j * 2)));
+          hashPairs.push(tokenData.hash.slice(2 + (j * 2), 4 + (j * 2)));
         }
-      }
+      //}
 
-			let seed = parseInt(tokenData.hashes[0].slice(48,64),16);
+	let seed = parseInt(tokenData.hashes[0].slice(48,64),16);
 
       let decPairs = hashPairs.map(x => { return parseInt(x, 16); });
 
 		let multiplier;
 
     function setup() {
-			createCanvas(windowWidth>windowHeight?windowHeight:windowWidth, windowWidth>windowHeight?windowHeight:windowWidth);
+	    const dim = Math.min(windowWidth,windowHeight);
+			createCanvas(dim,dim);
 			multiplier = width/2400;
 			
      
