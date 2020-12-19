@@ -33,7 +33,7 @@
         }
      
 
-	let seed = parseInt(tokenData.hashes[0].slice(48,64),16);
+	let seed = parseInt(tokenData.hash.slice(48,64),16);
 
       let decPairs = hashPairs.map(x => { return parseInt(x, 16); });
 
