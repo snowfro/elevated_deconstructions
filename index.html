@@ -24,14 +24,14 @@
 
       // Start here for upload //
 
-      //let numHashes = tokenData.hashes.length;
+     
 
       let hashPairs = [];
-      //for (let i = 0; i < numHashes; i++) {
+     
         for (let j = 0; j < 32; j++) {
           hashPairs.push(tokenData.hash.slice(2 + (j * 2), 4 + (j * 2)));
         }
-      //}
+     
 
 	let seed = parseInt(tokenData.hashes[0].slice(48,64),16);
 
